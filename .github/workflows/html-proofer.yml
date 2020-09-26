@@ -20,4 +20,4 @@ jobs:
         uses: chabad360/htmlproofer@master
         with:
           directory: "./_site"
-          arguments: --check-html
+          arguments: --check-html --url-ignore "/https://www.linkedin.com/in/niek-candaele-2baa131a1/"
