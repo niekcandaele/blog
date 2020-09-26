@@ -18,27 +18,27 @@ There's a lot of different methods to create a blog. Some are harder than others
 
 So, what platform should we use? I looked at a couple. I already had some experience tinkering around with static site generators so I am drawing from past experience here.
 
-- Ghost
+- [Ghost](https://ghost.org/)
 
 Looks really nice but requires running a server somewhere to render pages. I would prefer this being fully static which makes hosting a lot simpler.
 
-- VuePress
+- [VuePress](https://vuepress.vuejs.org/)
 
 Used it before for [CSMM docs](https://docs.csmm.app/). Easy to work with. Outputs simple static pages, renders from plain markdown. Solid option, but would like to explore others
 
-- Gatsby
+- [Gatsby](https://www.gatsbyjs.com/)
 
 Looks nice, but too complicated. I just want to write some stuff and have it appear online. This is definitely a good option if you are looking to set up a more advanced site than mine.
 
-- Medium
+- [Medium](https://medium.com/)
 
-Meh, not a fan. You do not own your own content. They have the registration-wall now, I despise having my content subject to that.
+Meh, not a fan. You do not own your own content. They have the registration-wall (You can only read a certain amount of articles per day) now, I despise having my content subject to that.
 
-- Jekyll
+- [Jekyll](https://jekyllrb.com/)
 
 Easy hosting with Github Pages (However, Vercel/Netlify/... probably provide better UX), many themes available, pretty 'low tech'. Jekyll is also very customizable, you can really go crazy if you dig in.
 
-- Hugo
+- [Hugo](https://gohugo.io/)
 
 Similar to Jekyll. Honestly, I didn't really see any obvious differences between the two.
 
@@ -77,4 +77,12 @@ bundle exec jekyll build
 bundle exec htmlproofer ./_site
 ```
 
-This is still too much manual work for me though, so I created a Github Action workflow to run it automatically on every git push.
+This is still too much manual work for me though, so I created a [Github Action workflow](https://github.com/niekcandaele/blog/tree/master/.github/workflows) to run it automatically on every git push. The URL to my Linkedin profile seems to be broken according to HTML proofer, so I had to tell it to ignore that url with `--url-ignore "/https://www.linkedin.com/in/niek-candaele-2baa131a1/"`
+
+---
+
+The final result is for every PR I create, the built site gets validated and Vercel creates a deploy preview so I can check and make sure everything still works ok.
+
+![final PR flow](../assets/img/finalPRflow.png)
+
+With the blog all set up and ready to go, all that's left to do is to write some posts...
