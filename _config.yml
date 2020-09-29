@@ -95,7 +95,7 @@ author:
   name: "Niek Candaele"
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio:
-  location: "127.0.0.1"
+  location:
   email:
   links:
     - label: "Email"
