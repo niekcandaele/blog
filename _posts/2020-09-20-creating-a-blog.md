@@ -6,12 +6,12 @@ What better way to start a blog than by making a post about how you made it?
 
 # Research
 
-There's a lot of different methods to create a blog. Some are harder than others, some provide more features, ... Choosing one can be quite the task. I started of by listing a couple of things that are important to me.
+There are a lot of different methods to create a blog. Some are harder than others, some provide more features, ... Choosing one can be quite the task. I started of by listing a couple of things that are important to me.
 
 ## Important factors
 
 - Easy (free 😃) to host
-- Content is markdown, I've had a bad experience migrating out of Confluence in the past. I want to avoid vendor lock in.
+- Content is markdown, I've had a bad experience migrating out of Confluence in the past. I want to avoid vendor lock-in.
 - Content is managed in Git. Pretty diffs!
 - Automatable. I don't want to FTP over files or something. I want to push to git and have it deployed for me.
 - Something fairly "low tech". I want to write markdown, not code.
@@ -24,7 +24,7 @@ Looks really nice but requires running a server somewhere to render pages. I wou
 
 - [VuePress](https://vuepress.vuejs.org/)
 
-Used it before for [CSMM docs](https://docs.csmm.app/). Easy to work with. Outputs simple static pages, renders from plain markdown. Solid option, but would like to explore others
+Used it before for [CSMM docs](https://docs.csmm.app/). Easy to work with. Outputs simple static pages, renders from plain markdown. Solid option, but would like to explore others.
 
 - [Gatsby](https://www.gatsbyjs.com/)
 
