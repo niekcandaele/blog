@@ -1,13 +1,31 @@
 import './global.css';
 
 import { Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import React from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
 
 import { scale } from '../utils/typography';
 import Footer from './footer';
 
 const Layout = ({ location, title, children }) => {
+
+  const data = useStaticQuery(graphql`
+  query SocialsQuery {
+    site {
+      siteMetadata {
+        social {
+          github
+          linkedin
+          mail
+        }
+      }
+    }
+  }
+`)
+
   const toggle = (
     <ThemeToggler>
       {({ toggleTheme, theme }) => {
@@ -57,11 +75,14 @@ const Layout = ({ location, title, children }) => {
     </ThemeToggler>
   )
 
+  const { social } = data.site.siteMetadata
+
   const socials = (
     <>
-      <ul>
-        <li>Iets</li>
-        <li>Nog iets</li>
+      <ul className="flex space-x-4">
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.linkedin}><FaLinkedin size="2em" /></a></li>
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.mail}><FiMail size="2em" /></a></li>
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.github}><FaGithub size="2em" /></a></li>
       </ul>
     </>
   )
@@ -85,10 +106,9 @@ const Layout = ({ location, title, children }) => {
           to={`/`}
         >
           {title}
-
-          {socials}
         </Link>
       </h2>
+      {socials}
     </>
   )
 

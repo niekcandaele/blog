@@ -9,9 +9,9 @@ module.exports = {
     description: `Blog about software engineering`,
     siteUrl: `https://blog.candaele.dev`,
     social: {
-      twitter: `ry_zou`,
       github: `https://github.com/niekcandaele`,
-      linkedin: `https://www.linkedin.com/in/niek-candaele/`
+      linkedin: `https://www.linkedin.com/in/niek-candaele/`,
+      mail: `mailto:niek@candaele.dev`,
 
     },
     defaultImage: "images/bg.jpeg",

@@ -27,19 +27,12 @@ const Bio = () => {
             name
             summary
           }
-          social {
-            twitter
-            github
-            linkedin
-          }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
-
-  console.log(social);
+  const { author } = data.site.siteMetadata
 
   return (
     <div
