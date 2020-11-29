@@ -111,13 +111,13 @@ In the original CI flow, all we did was run the Docker build, give it a tag and 
     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   with:
     # Pass the locally built image to Snyk
-    image: catalysm/csmm:${{ "{{ steps.prep.outputs.version " }}}}
+    image: catalysm/csmm:${{steps.prep.outputs.version}}
     args: --file=Dockerfile
 ```
 
-This action is pretty straight forward. We use the prebuilt action from Snyk for this. We have to configure an API key from Snyk as a Github secret `SNYK_TOKEN: ${{ "{{ secrets.SNYK_TOKEN " }}}}`.
+This action is pretty straight forward. We use the prebuilt action from Snyk for this. We have to configure an API key from Snyk as a Github secret `SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}`.
 
-One line that may make you go 🤔 is `image: catalysm/csmm:${{ "{{ steps.prep.outputs.version " }}}}`. This is a reference to the locally built image. We always want to scan the newly built image vs an image that is already uploaded.
+One line that may make you go 🤔 is `image: catalysm/csmm:${{steps.prep.outputs.version}}`. This is a reference to the locally built image. We always want to scan the newly built image vs an image that is already uploaded.
 
 ## Hadolint
 

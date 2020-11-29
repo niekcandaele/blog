@@ -11,7 +11,6 @@ module.exports = {
       github: `https://github.com/niekcandaele`,
       linkedin: `https://www.linkedin.com/in/niek-candaele/`,
       mail: `mailto:niek@candaele.dev`,
-
     },
     defaultImage: "images/bg.jpeg",
   },
