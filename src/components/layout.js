@@ -80,9 +80,9 @@ const Layout = ({ location, title, children }) => {
   const socials = (
     <>
       <ul className="flex space-x-4">
-        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.linkedin}><FaLinkedin size="1.75em" /></a></li>
-        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.mail}><FiMail size="1.75em" /></a></li>
-        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.github}><FaGithub size="1.75em" /></a></li>
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.linkedin}><FaLinkedin size="1.325em" /></a></li>
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.mail}><FiMail size="1.325em" /></a></li>
+        <li className="inline" ><a rel="noreferrer" target="_blank" href={social.github}><FaGithub size="1.325em" /></a></li>
       </ul>
     </>
   )
