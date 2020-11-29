@@ -1,5 +1,9 @@
 ---
-tags: docker
+title: Improving a Docker image
+date: "2020-10-23T07:26:03.284Z"
+description: "Applying modern techniques to an existing Docker CI workflow"
+categories: [code]
+comments: true
 ---
 
 This year I (virtually) attended [Dockercon](https://docker.events.cube365.net/docker/dockercon/) and [Snykcon](https://snyk.io/snykcon/) and I learned a lot of interesting stuff about Docker! For my open source project [CSMM](https://github.com/CatalysmsServerManager/7-days-to-die-server-manager) we already had a Docker image and workflows. However, those were set up a long time ago and hadn't been touched for a while. More importantly, I set that up when I was starting off with Docker. There were a lot of things wrong with it or things that could be added/improved.
@@ -45,7 +49,7 @@ Let's dive in and make some improvements!
 
 Snyk is a tool that can automatically scan your code and find security vulnerabilities. I used this to do an initial scan of the current image we had.
 
-![initial Snyk scan](../assets/img/improving-csmm-docker/initialSnykScan.png)
+![initial Snyk scan](./initialSnykScan.png)
 
 1000 alerts! Holy. That result shocked me at first but when I actually looked at the reports I saw a lot of CVEs that were not applicable to CSMM. Stuff like ImageMagick and all the other software included in Debian.
 Some of them probably were a problem but I wasn't going to go through all those reports to check if they should be fixed. Besides, how would I _**fix**_ them?
@@ -60,7 +64,7 @@ I also decided to update to node 14, since we don't even test 10 anymore in CI. 
 
 After this, I let Snyk scan the image again
 
-![After Alpine Snyk scan](../assets/img/improving-csmm-docker/afterAlpineSnykScan.png)
+![After Alpine Snyk scan](./afterAlpineSnykScan.png)
 
 ## Multi stage build
 
@@ -107,13 +111,13 @@ In the original CI flow, all we did was run the Docker build, give it a tag and 
     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   with:
     # Pass the locally built image to Snyk
-    image: catalysm/csmm:${{ "{{ steps.prep.outputs.version " }}}}
+    image: catalysm/csmm:${{steps.prep.outputs.version}}
     args: --file=Dockerfile
 ```
 
-This action is pretty straight forward. We use the prebuilt action from Snyk for this. We have to configure an API key from Snyk as a Github secret `SNYK_TOKEN: ${{ "{{ secrets.SNYK_TOKEN " }}}}`.
+This action is pretty straight forward. We use the prebuilt action from Snyk for this. We have to configure an API key from Snyk as a Github secret `SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}`.
 
-One line that may make you go 🤔 is `image: catalysm/csmm:${{ "{{ steps.prep.outputs.version " }}}}`. This is a reference to the locally built image. We always want to scan the newly built image vs an image that is already uploaded.
+One line that may make you go 🤔 is `image: catalysm/csmm:${{steps.prep.outputs.version}}`. This is a reference to the locally built image. We always want to scan the newly built image vs an image that is already uploaded.
 
 ## Hadolint
 
