@@ -1,5 +1,9 @@
 ---
-tags: jekyll, meta
+title: Creating a blog
+date: "2020-09-20T07:26:03.284Z"
+description: "Creating a blog with Jekyll"
+categories: [code]
+comments: true
 ---
 
 What better way to start a blog than by making a post about how you made it?
@@ -44,7 +48,7 @@ Similar to Jekyll. Honestly, I didn't really see any obvious differences between
 
 At this point, I was set on using either Jekyll or Hugo. Since I didn't see any advantage over one or the other, I decided to look at which one is more popular on Google 😄.
 
-![Jekyll vs Hugo Google Trends](../assets/img/jekyllvshugo.png)
+![Jekyll vs Hugo Google Trends](./jekyllvshugo.png)
 
 Looks like Jekyll is more popular, let's give it a whirl!
 
@@ -83,6 +87,6 @@ This is still too much manual work for me though, so I created a [Github Action 
 
 The final result is for every PR I create, the built site gets validated and Vercel creates a deploy preview so I can check and make sure everything still works ok.
 
-![final PR flow](../assets/img/finalPRflow.png)
+![final PR flow](./finalPRflow.png)
 
 With the blog all set up and ready to go, all that's left to do is to write some posts...
