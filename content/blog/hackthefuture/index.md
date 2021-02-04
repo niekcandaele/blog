@@ -1,7 +1,6 @@
 ---
-title: Winning Hack the Future 2020
+title: Hack the Future 2020
 date: "2020-11-30T07:26:03.284Z"
-description: "How we won Hack the Future 2020 :)"
 categories: [code]
 comments: true
 ---
@@ -66,18 +65,32 @@ So now we have a functional system right? Haha, nope and we have about an hour a
 
 You might think an hour and a half is plenty of time but when our debugging efforts failed for about 75 minutes, that becomes a lot less comfortable.
 
-```
-// TODO: Paste code pushing events to EventBridge
+```js
+    const entries = []
+    data.forEach(_ => {
+        entries.push({
+            Detail: JSON.stringify(_),
+            DetailType: 'trollAlert',
+            EventBusName: 'event bus name',
+            Source: 'be.i8c.htf.trollevents.reddit',
+            Resources: [],
+            Time: _.created_utc
+        });
+    });
+
+    await eventBridge.putEvents({
+        Entries: entries
+    }).promise()
 ```
 
 Turns out that while we use promises with the AWS SDK here, if an error occurred, the Promise would not reject! It would resolve with an error message. Again a thank you to our coach for saving the day and telling us to save the response to a variable and log it. As it turns out, EventBridge accepts JSON but not all JSON.
 
-// TODO: Paste error message here? Was a weird error iirc
-
-You cannot push an array of events into EventBridge. During this time of lockdowns, this was probably one of the most exhilarating moments I experienced. We found this fix about 10-15 minutes before the end of the challenge. I jumped out of my chair with joy while at the same time trying to code the fix (Didn't work very well 😉). In hindsight, this issue was probably causing tons of other weird behavior which we tried to debug. If we had just logged the ~~damned~~ response at the start, this would have saved us **so much** time.
+You cannot push an array of events into EventBridge. We found this fix about 10-15 minutes before the end of the challenge. In hindsight, this issue was probably causing tons of other weird behavior which we tried to debug. If we had just logged the ~~damned~~ response at the start, this would have saved us **so much** time.
 
 Finally we had a working system!
 
 ## Aftermath
 
-We won. gg ez
+We won! 😁 Winning the first hackathon you ever attend is a pretty good feeling. You can find the full source code of our solution [on Github](https://github.com/niekcandaele/hackthefuture-aws-challenge).
+
+For final words, I'd like to thank everyone involved in organizing Hack The Future, and especially our coaches. The hackathon was really fun and I learned a lot by competing!
