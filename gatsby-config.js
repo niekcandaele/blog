@@ -84,5 +84,11 @@ module.exports = {
     `gatsby-plugin-offline`,
     "gatsby-plugin-dark-mode",
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `blog.candaele.dev`,
+      },
+    },
   ],
 }
