@@ -6,8 +6,7 @@ categories: [code]
 
 The [Delaware student games](https://www.delaware.pro/en-be/events/delaware-student-game-2021) are an annual event where students get 24 hours to work on a real-life case.
 
-//TODO:
-TLDR: Check our pitch video!
+[TLDR: Check our pitch video!](./delawarehackaton_cut.mp4)
 
 ## Our case
 
