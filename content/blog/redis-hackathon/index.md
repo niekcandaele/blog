@@ -4,6 +4,8 @@ date: "2021-05-16T07:26:03.284Z"
 categories: [code]
 ---
 
+EDIT: Check out the [winners of the hackathon](https://redislabs.com/blog/build-on-redis-hackathon-winners/), including us :)
+
 The [Redis Hackathon 2021](https://redislabs.com/hackathon-2021/) had a simple objective: build something using Redis.
 
 Redis is most known as a caching datastore. However, did you know they also have support for [storing and retrieving JSON documents](https://redislabs.com/modules/redisjson-quick-start/), [full-text search](https://redislabs.com/modules/redisearch-quick-start/), [time series data](https://redislabs.com/modules/redistimeseries-quick-start/), [graph databases](https://redislabs.com/modules/redisgraph-quick-start/), [AI inferenceing/serving engine](https://oss.redislabs.com/redisai/quickstart/) and [distributed, programmable engine similar to Lambda functions](https://oss.redislabs.com/redisgears/)?
